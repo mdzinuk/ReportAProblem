@@ -44,8 +44,8 @@ class MyCollectionViewCell: UICollectionViewCell {
         } else {
             label.text = model.title.capitalized
         }
-        label.textColor = model.isSelected ? UIColor.lightGray : UIColor.orange
-        label.textColor = model.isHightLighted ? UIColor.lightGray : UIColor.orange
+        label.textColor = .gray//model.isSelected ? UIColor.lightGray : UIColor.gray
+       // label.textColor = model.isHightLighted ? UIColor.lightGray : UIColor.orange
     }
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ReportGeneratorController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var collectionViewLayout = MosaicLayout()
     

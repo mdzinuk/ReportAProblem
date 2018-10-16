@@ -21,7 +21,7 @@
 		860854982171C27F001529C3 /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854942171C27F001529C3 /* MosaicLayout.swift */; };
 		860854992171C27F001529C3 /* SecondCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860854952171C27F001529C3 /* SecondCollectionViewCell.xib */; };
 		8608549A2171C27F001529C3 /* ShortVideoListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854962171C27F001529C3 /* ShortVideoListHeader.swift */; };
-		8608549C2171C29A001529C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8608549B2171C299001529C3 /* SecondViewController.swift */; };
+		8608549C2171C29A001529C3 /* ReportGeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8608549B2171C299001529C3 /* ReportGeneratorController.swift */; };
 		8608549E21749118001529C3 /* MaterialIcons-Regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 8608549D21749118001529C3 /* MaterialIcons-Regular.woff */; };
 		8608549F21749118001529C3 /* MaterialIcons-Regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 8608549D21749118001529C3 /* MaterialIcons-Regular.woff */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		860854942171C27F001529C3 /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
 		860854952171C27F001529C3 /* SecondCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCollectionViewCell.xib; sourceTree = "<group>"; };
 		860854962171C27F001529C3 /* ShortVideoListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortVideoListHeader.swift; sourceTree = "<group>"; };
-		8608549B2171C299001529C3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8608549B2171C299001529C3 /* ReportGeneratorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportGeneratorController.swift; sourceTree = "<group>"; };
 		8608549D21749118001529C3 /* MaterialIcons-Regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaterialIcons-Regular.woff"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,7 +197,7 @@
 		860854882171BCCA001529C3 /* ReportGeneratorController */ = {
 			isa = PBXGroup;
 			children = (
-				8608549B2171C299001529C3 /* SecondViewController.swift */,
+				8608549B2171C299001529C3 /* ReportGeneratorController.swift */,
 			);
 			path = ReportGeneratorController;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8608549C2171C29A001529C3 /* SecondViewController.swift in Sources */,
+				8608549C2171C29A001529C3 /* ReportGeneratorController.swift in Sources */,
 				860854472171BB65001529C3 /* AppDelegate.swift in Sources */,
 				8608549A2171C27F001529C3 /* ShortVideoListHeader.swift in Sources */,
 				8608548B2171BD46001529C3 /* ListViewController.swift in Sources */,

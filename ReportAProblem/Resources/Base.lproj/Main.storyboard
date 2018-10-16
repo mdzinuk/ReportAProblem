@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="-31.199999999999999" y="807.34632683658174"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Report Generator Controller-->
         <scene sceneID="wOL-XR-jHb">
             <objects>
-                <viewController storyboardIdentifier="kSecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NpW-h1-6cz" customClass="SecondViewController" customModule="DragAndDropInCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kReportGeneratorController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NpW-h1-6cz" customClass="ReportGeneratorController" customModule="ReportAProblem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UXH-UY-n57">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

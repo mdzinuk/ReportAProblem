@@ -134,7 +134,7 @@ class ListViewController: UIViewController {
     
     @IBAction func didTapOnButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "kSecondViewController")
+        let vc = storyboard.instantiateViewController(withIdentifier: "kReportGeneratorController")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
