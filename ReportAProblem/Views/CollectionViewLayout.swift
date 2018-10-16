@@ -7,19 +7,12 @@
 
 import UIKit
 
-enum MosaicSegmentStyle {
-    case fullWidth
-    case fiftyFifty
-    case twoThirdsOneThird
-    case oneThirdTwoThirds
-}
-
-protocol MyLayoutDelegate: class {
+protocol CollectionViewLayoutDelegate: class {
     func collectionView(_ collectionView: UICollectionView, sizeForItemAt indexPath: IndexPath) -> CGSize
 }
 
-class MosaicLayout: UICollectionViewLayout {
-    weak var delegate: MyLayoutDelegate?
+class CollectionViewLayout: UICollectionViewLayout {
+    weak var delegate: CollectionViewLayoutDelegate?
     var contentBounds = CGRect.zero
     var cachedAttributes = [UICollectionViewLayoutAttributes]()
     

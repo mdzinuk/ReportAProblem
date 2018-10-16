@@ -11,17 +11,17 @@ import UIKit
 class SecondCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
     
-    func loadItem(_ product: Product) {
+    func loadItem(_ item: Item) {
         //label.text = product.name
         
         var string = NSAttributedString(string: Icon.IconLibrary.add_circle.rawValue,
                                         attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.small.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.orange])
-        if product.selected == true {
+        if item.selected == true {
             string =  NSAttributedString(string: Icon.IconLibrary.add_circle.rawValue,
                                          attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.small.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.red])
         }
         
-        let attributedText = NSMutableAttributedString(string: product.name,
+        let attributedText = NSMutableAttributedString(string: item.title,
                                                        attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         
@@ -30,7 +30,7 @@ class SecondCollectionViewCell: UICollectionViewCell {
         label.attributedText = attributedText
         
         /*label.text = product.name + Icon.IconLibrary.shopping_cart.rawValue
-        label.font = UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.small.rawValue)*/
+         label.font = UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.small.rawValue)*/
         
     }
     
@@ -39,8 +39,8 @@ class SecondCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 10.0
         self.contentView.layer.borderWidth = 1.0
         
-            contentView.backgroundColor = .white
-            self.contentView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.backgroundColor = .white
+        self.contentView.layer.borderColor = UIColor.lightGray.cgColor
         
         
         
@@ -53,5 +53,5 @@ class SecondCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
-
+    
 }

@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 
-
 class Model {
     var isHightLighted: Bool
     var isSelected: Bool

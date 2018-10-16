@@ -10,8 +10,8 @@ import UIKit
 
 class ListViewController: UIViewController {
     @IBOutlet weak var collectionView1: UICollectionView! {
-      didSet {
-        collectionView1.allowsSelection = false
+        didSet {
+            collectionView1.allowsSelection = false
         }
     }
     @IBOutlet weak var collectionView2: UICollectionView! {
@@ -30,18 +30,6 @@ class ListViewController: UIViewController {
     //MARK: View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let layout = BouncyLayout(style: .regular)
-        
-       // let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        //layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
-        layout.minimumInteritemSpacing = 15
-        layout.minimumLineSpacing = 12
-        //layout.itemSize = UICollectionViewFlowLayoutAutomaticSize
-        layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
-        */
         
         let layout = UICollectionViewFlowLayout()
         //layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
@@ -114,15 +102,6 @@ class ListViewController: UIViewController {
                 dragItem.isSelected = !dragItem.isSelected
                 self.items2.insert(dragItem, at: indexPath.row)
                 destinationIndeces.append(indexPath)
-            }
-            
-            print(destinationIndeces)
-            print(sourceIndeces)
-            
-            if collectionView == collectionView1 {
-                print("========= First Collection")
-            } else {
-                print("========= Second Collection")
             }
             
             collectionView.insertItems(at: destinationIndeces)
@@ -242,28 +221,6 @@ extension ListViewController : UICollectionViewDropDelegate {
         default:
             return
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
-        /*
-        collectionView.performBatchUpdates({
-            
-            if collectionView === self.collectionView1 && didReordering == false {
-                var removeIndexPaths = [IndexPath]()
-                let oldItems = self.items1
-                let subtractsArray =  Array(Set(oldItems).subtracting(items2))
-                self.items1.removeAll()
-                self.items1 = subtractsArray
-                for (index, item) in oldItems.enumerated() {
-                    if subtractsArray.filter({item == $0}).count == 0 {
-                        removeIndexPaths.append(IndexPath(item: index, section: 0))
-                    }
-                }
-                collectionView.deleteItems(at: removeIndexPaths)
-            }
-        }) { (tt) in
-            collectionView.reloadData()
-        }*/
     }
 }
 

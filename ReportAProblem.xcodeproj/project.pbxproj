@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860842D22175E4B200784827 /* SectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860842D12175E4B200784827 /* SectionDataSource.swift */; };
+		860842D32175E4B200784827 /* SectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860842D12175E4B200784827 /* SectionDataSource.swift */; };
+		860842D62175E57000784827 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860842D52175E57000784827 /* UILabel+Extension.swift */; };
+		860842D72175E57000784827 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860842D52175E57000784827 /* UILabel+Extension.swift */; };
 		860854472171BB65001529C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854462171BB65001529C3 /* AppDelegate.swift */; };
 		8608544C2171BB65001529C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8608544A2171BB65001529C3 /* Main.storyboard */; };
 		8608544E2171BB65001529C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8608544D2171BB65001529C3 /* Assets.xcassets */; };
@@ -18,7 +22,7 @@
 		860854902171BFB2001529C3 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8608548E2171BFB2001529C3 /* MyCollectionViewCell.swift */; };
 		860854912171BFB2001529C3 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8608548F2171BFB2001529C3 /* MyCollectionViewCell.xib */; };
 		860854972171C27F001529C3 /* SecondCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854932171C27F001529C3 /* SecondCollectionViewCell.swift */; };
-		860854982171C27F001529C3 /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854942171C27F001529C3 /* MosaicLayout.swift */; };
+		860854982171C27F001529C3 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854942171C27F001529C3 /* CollectionViewLayout.swift */; };
 		860854992171C27F001529C3 /* SecondCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860854952171C27F001529C3 /* SecondCollectionViewCell.xib */; };
 		8608549A2171C27F001529C3 /* ShortVideoListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860854962171C27F001529C3 /* ShortVideoListHeader.swift */; };
 		8608549C2171C29A001529C3 /* ReportGeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8608549B2171C299001529C3 /* ReportGeneratorController.swift */; };
@@ -44,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		860842D12175E4B200784827 /* SectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSource.swift; sourceTree = "<group>"; };
+		860842D52175E57000784827 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		860854432171BB65001529C3 /* ReportAProblem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReportAProblem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		860854462171BB65001529C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8608544B2171BB65001529C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,7 +67,7 @@
 		8608548E2171BFB2001529C3 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8608548F2171BFB2001529C3 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		860854932171C27F001529C3 /* SecondCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCollectionViewCell.swift; sourceTree = "<group>"; };
-		860854942171C27F001529C3 /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
+		860854942171C27F001529C3 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		860854952171C27F001529C3 /* SecondCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCollectionViewCell.xib; sourceTree = "<group>"; };
 		860854962171C27F001529C3 /* ShortVideoListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortVideoListHeader.swift; sourceTree = "<group>"; };
 		8608549B2171C299001529C3 /* ReportGeneratorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportGeneratorController.swift; sourceTree = "<group>"; };
@@ -93,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		860842D42175E52200784827 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				860842D52175E57000784827 /* UILabel+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8608543A2171BB64001529C3 = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +130,14 @@
 		860854452171BB65001529C3 /* ReportAProblem */ = {
 			isa = PBXGroup;
 			children = (
+				860854462171BB65001529C3 /* AppDelegate.swift */,
+				860842D42175E52200784827 /* Extension */,
 				860854892171BCE4001529C3 /* ReportSubmiController */,
 				860854882171BCCA001529C3 /* ReportGeneratorController */,
 				860854872171BCB5001529C3 /* Models */,
 				860854862171BCA3001529C3 /* ListViewController */,
 				860854852171BC8D001529C3 /* Views */,
 				860854842171BC82001529C3 /* DataSources */,
-				860854462171BB65001529C3 /* AppDelegate.swift */,
 				860854832171BC57001529C3 /* Resources */,
 			);
 			path = ReportAProblem;
@@ -161,6 +176,7 @@
 		860854842171BC82001529C3 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				860842D12175E4B200784827 /* SectionDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -168,7 +184,7 @@
 		860854852171BC8D001529C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				860854942171C27F001529C3 /* MosaicLayout.swift */,
+				860854942171C27F001529C3 /* CollectionViewLayout.swift */,
 				860854932171C27F001529C3 /* SecondCollectionViewCell.swift */,
 				860854952171C27F001529C3 /* SecondCollectionViewCell.xib */,
 				860854962171C27F001529C3 /* ShortVideoListHeader.swift */,
@@ -345,11 +361,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8608549C2171C29A001529C3 /* ReportGeneratorController.swift in Sources */,
+				860842D22175E4B200784827 /* SectionDataSource.swift in Sources */,
+				860842D62175E57000784827 /* UILabel+Extension.swift in Sources */,
 				860854472171BB65001529C3 /* AppDelegate.swift in Sources */,
 				8608549A2171C27F001529C3 /* ShortVideoListHeader.swift in Sources */,
 				8608548B2171BD46001529C3 /* ListViewController.swift in Sources */,
 				860854972171C27F001529C3 /* SecondCollectionViewCell.swift in Sources */,
-				860854982171C27F001529C3 /* MosaicLayout.swift in Sources */,
+				860854982171C27F001529C3 /* CollectionViewLayout.swift in Sources */,
 				860854902171BFB2001529C3 /* MyCollectionViewCell.swift in Sources */,
 				8608548D2171BD87001529C3 /* Model.swift in Sources */,
 			);
@@ -367,7 +385,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				860842D32175E4B200784827 /* SectionDataSource.swift in Sources */,
 				860854672171BB65001529C3 /* ReportAProblemUITests.swift in Sources */,
+				860842D72175E57000784827 /* UILabel+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
