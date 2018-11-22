@@ -7,240 +7,158 @@
 //
 
 import UIKit
+import Foundation
 
 class ListViewController: UIViewController {
     @IBOutlet weak var collectionView1: UICollectionView! {
         didSet {
-            collectionView1.allowsSelection = false
+            collectionView1.reloadData()
+            collectionView1.backgroundColor = UIColor.black.withAlphaComponent(0.015)
+            collectionView1.accessibilityIdentifier = "__page__ListViewController"
         }
     }
-    @IBOutlet weak var collectionView2: UICollectionView! {
+    
+    @IBOutlet weak var contentHeight: NSLayoutConstraint! {
         didSet {
-            collectionView2.allowsSelection = false
+            //contentHeight.priority = UILayoutPriority.defaultHigh
+            //contentHeight.constant = collectionViewLayout1.contentBounds.height
         }
     }
     
-    @IBOutlet weak var topCollectionViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var bottomCollectionBottomHeight: NSLayoutConstraint!
+    private var collectionDisposable: Disposable?
+    let collectionViewLayout1 = CollectionViewLayout()
+    var dataModules = [Module]()
     
-    private var items1 = Model.allObject()
-    private var items2 = [Model]()
-    private var didReordering: Bool = true
+    @IBOutlet weak var nextButton: UIButton!{
+        didSet {
+            self.nextButton.layer.cornerRadius = self.nextButton.bounds.size.height/2
+            self.nextButton.layer.borderWidth = 1.0
+            self.nextButton.backgroundColor = .white
+            self.nextButton.layer.borderColor = UIColor.lightGray.cgColor
+            self.nextButton.layer.masksToBounds = true
+            self.nextButton.layer.shadowColor = UIColor.gray.cgColor
+            self.nextButton.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            self.nextButton.layer.shadowRadius = 2.0
+            self.nextButton.layer.shadowOpacity = 0.9
+            self.nextButton.layer.masksToBounds = false
+            let attributedText =  NSMutableAttributedString(string: Icon.IconLibrary.create.rawValue,
+                                                            attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.nextButton.setAttributedTitle(attributedText, for: .normal)
+        }
+    }
+    var firstDataManipulator: CollectionViewDataManipulator<Item, ListCollectionViewCell>? {
+        didSet {
+            if let collectionView = collectionView1 {
+                collectionViewLayout1.layout?.maxParallaxOffset = 60
+                collectionViewLayout1.layout?.minimumInteritemSpacing = 10
+                collectionViewLayout1.layout?.minimumLineSpacing = 10
+                collectionViewLayout1.layout?.headerSize = CGSize(width: 414, height: 260)
+                
+                
+                collectionViewLayout1.delegate = firstDataManipulator
+                collectionView.collectionViewLayout = collectionViewLayout1
+                collectionView.dragInteractionEnabled = true
+                collectionView.dataSource = firstDataManipulator
+                collectionView.delegate = firstDataManipulator
+                collectionView.dragDelegate = firstDataManipulator
+                collectionView.dropDelegate = firstDataManipulator
+                
+                collectionView.register(ListCollectionViewCell.nib,
+                                        forCellWithReuseIdentifier: ListCollectionViewCell.reuseIdentifier)
+                
+                collectionView.register(CustomListHeader.self,
+                                        forSupplementaryViewOfKind: CollectionViewLayout.Element.header.kind,
+                                        withReuseIdentifier: CollectionViewLayout.Element.header.id)
+                collectionView.register(ShortVideoListHeader.self,
+                                        forSupplementaryViewOfKind: CollectionViewLayout.Element.sectionHeader.kind,
+                                        withReuseIdentifier: CollectionViewLayout.Element.sectionHeader.id)
+                collectionView.register(CustomListHeader.self,
+                                        forSupplementaryViewOfKind: CollectionViewLayout.Element.sectionFooter.kind,
+                                        withReuseIdentifier: CollectionViewLayout.Element.sectionFooter.id)
+            }
+        }
+    }
     
     //MARK: View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let layout = UICollectionViewFlowLayout()
-        //layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        self.collectionView1?.collectionViewLayout = layout
-        self.collectionView1.dragInteractionEnabled = true
-        self.collectionView1.dragDelegate = self
-        self.collectionView1.dropDelegate = self
-        self.collectionView1.delegate = self
-        self.collectionView1.reorderingCadence = .immediate
-        collectionView1.register(UINib(nibName: "MyCollectionViewCell", bundle: .main),
-                                 forCellWithReuseIdentifier: "kMyCollectionViewCell")
-        
-        
-        let layout2 = UICollectionViewFlowLayout()
-        layout2.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        self.collectionView2?.collectionViewLayout = layout2
-        self.collectionView2.dragInteractionEnabled = true
-        self.collectionView2.dropDelegate = self
-        self.collectionView2.dragDelegate = self
-        self.collectionView2.reorderingCadence = .slow //default value - .immediate
-        collectionView2.register(UINib(nibName: "MyCollectionViewCell", bundle: .main),
-                                 forCellWithReuseIdentifier: "kMyCollectionViewCell")
-    }
-    
-    //MARK: Private Methods
-    private func reorderItems(coordinator: UICollectionViewDropCoordinator,
-                              destinationIndexPath: IndexPath, collectionView: UICollectionView) {
-        let items = coordinator.items
-        if items.count == 1, let item = items.first, let sourceIndexPath = item.sourceIndexPath {
-            var dIndexPath = destinationIndexPath
-            if dIndexPath.row >= collectionView.numberOfItems(inSection: 0) {
-                dIndexPath.row = collectionView.numberOfItems(inSection: 0) - 1
-            }
-            collectionView.performBatchUpdates({
-                if collectionView === self.collectionView2 {
-                    self.items2.remove(at: sourceIndexPath.row)
-                    self.items2.insert(item.dragItem.localObject as! Model, at: dIndexPath.row)
-                } else {
-                    self.items1.remove(at: sourceIndexPath.row)
-                    self.items1.insert(item.dragItem.localObject as! Model, at: dIndexPath.row)
+        AMProgressHUD.show()
+        Service<[Module]>.loadJSON("reports") { [weak self] (response: Response<[Module]>) in
+            switch response {
+            case .success(let modules):
+                if let allModules = modules {
+                    self?.dataModules = allModules
+                    self?.firstDataManipulator = CollectionViewDataManipulator<Item, ListCollectionViewCell>(secions:
+                        [Section<Item>(title: "Please drag the items",
+                                       items: ListViewModel.listModels(modules: allModules),
+                                       isDragEnabled: true),
+                         Section<Item>(title: "Drop please",
+                                       items: [/*ListViewModel.customModel()*/],
+                                       isDragEnabled: false)
+                        ])
+                    AMProgressHUD.dismiss()
                 }
-                collectionView.deleteItems(at: [sourceIndexPath])
-                collectionView.insertItems(at: [dIndexPath])
-            })
-            coordinator.drop(items.first!.dragItem, toItemAt: dIndexPath)
+            case .failure(let status, let reason):
+                print(reason ?? "" + "\(status)")
+                AMProgressHUD.dismiss()
+            }
         }
-    }
-    
-    private func copyItems(coordinator: UICollectionViewDropCoordinator,
-                           destinationIndexPath: IndexPath, sourceIndexPath: IndexPath?,
-                           collectionView: UICollectionView) {
         
-        collectionView.performBatchUpdates({
-            var destinationIndeces = [IndexPath]()
-            var sourceIndeces = [IndexPath]()
-            let firstArray = self.items1
-            
-            for (index, item) in coordinator.items.enumerated() {
-                let indexPath = IndexPath(row: destinationIndexPath.row + index,
-                                          section: destinationIndexPath.section)
-                
-                let dragItem = item.dragItem.localObject as! Model
-                for(index2, itemIndex) in firstArray.enumerated() {
-                    if itemIndex == dragItem {
-                        let sourceIndie = IndexPath(row: index2, section: destinationIndexPath.section)
-                        sourceIndeces.append(sourceIndie)
-                        self.items1.remove(at: index2)
-                    }
-                }
-                dragItem.isSelected = !dragItem.isSelected
-                self.items2.insert(dragItem, at: indexPath.row)
-                destinationIndeces.append(indexPath)
-            }
-            
-            collectionView.insertItems(at: destinationIndeces)
-            collectionView1.deleteItems(at: sourceIndeces)
-            topCollectionViewHeight.constant = collectionView1.intrinsicContentSize.height
-            bottomCollectionBottomHeight.constant = 400 +  collectionView1.intrinsicContentSize.height
-        })
+        collectionDisposable = Observable(collectionViewLayout1.contentBounds.height).observe { [weak self] height in
+            //self?.contentHeight.constant = max(min(height, (UIScreen.main.bounds.height - 100)), 600)
+        }
     }
     
     @IBAction func didTapOnButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "kReportGeneratorController")
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-}
-
-
-// MARK: - UICollectionViewDataSource Methods
-extension ListViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == self.collectionView1 ? self.items1.count : self.items2.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.collectionView1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kMyCollectionViewCell", for: indexPath) as! MyCollectionViewCell
-            cell.setModel(self.items1[indexPath.row])
-            /*cell.label.text = self.items1[indexPath.row].title.capitalized
-             cell.isSelected = false*/
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kMyCollectionViewCell", for: indexPath) as! MyCollectionViewCell
-            cell.setModel(self.items2[indexPath.row])
-            return cell
-        }
-    }
-}
-
-// MARK: - UICollectionViewDragDelegate Methods
-extension ListViewController : UICollectionViewDragDelegate {
-    func collectionView(_ collectionView: UICollectionView,
-                        itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem]
-    {
-        let item = collectionView == collectionView1 ? self.items1[indexPath.row] : self.items2[indexPath.row]
-        let itemProvider = NSItemProvider(object: item.title as NSString)
-        let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = item
-        return [dragItem]
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        itemsForAddingTo session: UIDragSession,
-                        at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
-        let item = collectionView == collectionView1 ? self.items1[indexPath.row] : self.items2[indexPath.row]
-        let itemProvider = NSItemProvider(object: item.title as NSString)
-        let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = item
-        return [dragItem]
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        if collectionView == collectionView2 {
-            let previewParameters = UIDragPreviewParameters()
-            previewParameters.visiblePath = UIBezierPath(rect: CGRect(x: 25, y: 25, width: 50, height: 50))
-            return previewParameters
-        }
-        return nil
-    }
-}
-
-// MARK: - UICollectionViewDropDelegate Methods
-extension ListViewController : UICollectionViewDropDelegate {
-    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
-        return session.canLoadObjects(ofClass: NSString.self)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        dropSessionDidUpdate session: UIDropSession,
-                        withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-        if collectionView === self.collectionView1 {
-            if collectionView.hasActiveDrag {
-                return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-            } else {
-                return UICollectionViewDropProposal(operation: .forbidden)
+        /*
+        if let specialItems = firstDataManipulator?.getSpecialItems() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "kReportComposeViewController") as? ReportComposeViewController {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        } else*/
+        
+        guard let selectedItems = firstDataManipulator?.getSelectedItems() else { return }
+        if let specialItem = selectedItems.filter({$0.isSpecial == true}).first {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "kReportComposeViewController") as? ReportComposeViewController {
+                //self.navigationController?.pushViewController(vc, animated: true)
+                self.present(vc, animated: true, completion: nil)
             }
         } else {
-            if collectionView.hasActiveDrag {
-                return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-            } else {
-                return UICollectionViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+            var ddd = [Module]()
+            self.dataModules.forEach { (module) in
+                selectedItems.forEach({ (item) in
+                    if item.subtitle == module.feature {
+                        ddd.append(module)
+                    }
+                    print(item.subtitle)
+                })
             }
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        performDropWith coordinator: UICollectionViewDropCoordinator) {
-        let destinationIndexPath: IndexPath
-        if let indexPath = coordinator.destinationIndexPath {
-            destinationIndexPath = indexPath
-        } else {
-            // Get last index path of table view.
-            let section = collectionView.numberOfSections - 1
-            let row = collectionView.numberOfItems(inSection: section)
-            destinationIndexPath = IndexPath(row: row, section: section)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "kReportGeneratorController") as? ReportGeneratorController {
+                vc.selectedModules = ddd
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         
-        switch coordinator.proposal.operation {
-        case .move:
-            self.reorderItems(coordinator: coordinator, destinationIndexPath:destinationIndexPath, collectionView: collectionView)
-            break
-            
-        case .copy:
-            self.copyItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, sourceIndexPath: coordinator.items.first?.sourceIndexPath, collectionView: collectionView)
-            
-        default:
-            return
-        }
+        
+        
+        
+        /*
+         firstDataManipulator?.sections.forEach({ (item: CollectionViewDataManipulator<Item, ListCollectionViewCell>.Section<Item>) in
+         print(item.title)
+         })*/
     }
-}
-
-extension ListViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.collectionView1 {
-            let size = self.items1[indexPath.row].size
-            //let size = UILabel.textSize(font: UIFont.systemFont(ofSize: 17), text: text)
-            return CGSize(width: size.width + 20, height: size.height + 15)
-        } else {
-            let size = self.items2[indexPath.row].size
-            //let size = UILabel.textSize(font: UIFont.systemFont(ofSize: 17), text: text)
-            return CGSize(width: size.width + 20, height: size.height  + 15)
-        }
+    
+    var intrinsicContentSize: CGSize {
+        return collectionView1.collectionViewLayout.collectionViewContentSize
+    }
+    public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView1.collectionViewLayout.invalidateLayout()
+        self.collectionView1.layoutIfNeeded()
     }
 }
 
 
-extension UICollectionView {
-    override open var intrinsicContentSize: CGSize {
-        return self.collectionViewLayout.collectionViewContentSize
-    }
-}

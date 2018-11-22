@@ -9,17 +9,11 @@
 import XCTest
 
 class ReportAProblemUITests: XCTestCase {
-
+    let app = XCUIApplication()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+       continueAfterFailure = false
+        app.launch()
     }
 
     override func tearDown() {
@@ -27,8 +21,45 @@ class ReportAProblemUITests: XCTestCase {
     }
 
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      // let page = app.otherElements["__page__ListViewController"]
+        
+        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 3)
+        let destination = app.collectionViews.children(matching:.any).element(boundBy: 11)
+        let doneButton = app.buttons["doneButton"]
+        if firstChild.exists && doneButton.exists {
+            //.tap()
+            firstChild.dragAndDropUsingCenterPos(forDuration: 0.5, thenDragTo: destination)
+            doneButton.tap()
+            
+            let reportGeneratorController = app.otherElements["__page__ReportGeneratorController"]
+            let exists = NSPredicate(format: "exists == 1")
+            expectation(for: exists, evaluatedWith: reportGeneratorController, handler: nil)
+            waitForExpectations(timeout: 5, handler: nil)
+            let numbertwo = app.collectionViews.children(matching:.any).element(boundBy: 3)
+            numbertwo.tap()
+            sleep(5)
+            
+            let secondDone = app.navigationBars.buttons["doneButton"]
+            secondDone.tap()
+            
+            sleep(5)
+
+        }
     }
 
+}
+
+
+extension XCUIElement {
+    
+    func dragAndDropUsingCenterPos(forDuration duration: TimeInterval,
+                                   thenDragTo destElement: XCUIElement) {
+        
+        let sourceCoordinate: XCUICoordinate = self.coordinate(withNormalizedOffset: CGVector(dx:0.5, dy:0.5))
+        
+        let destCorodinate: XCUICoordinate = destElement.coordinate(withNormalizedOffset: CGVector(dx:0.5, dy:0.5))
+        
+        sourceCoordinate.press(forDuration: duration, thenDragTo: destCorodinate)
+    }
+    
 }

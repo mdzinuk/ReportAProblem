@@ -11,12 +11,12 @@ import UIKit
 class SecondCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
     
-    func loadItem(_ item: Item) {
+    func loadItem(_ item: Itemable) {
         //label.text = product.name
         
         var string = NSAttributedString(string: Icon.IconLibrary.add_circle.rawValue,
                                         attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.small.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.orange])
-        if item.selected == true {
+        if item.isDragged == true {
             string =  NSAttributedString(string: Icon.IconLibrary.add_circle.rawValue,
                                          attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.small.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.red])
         }

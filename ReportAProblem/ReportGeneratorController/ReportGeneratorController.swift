@@ -11,77 +11,66 @@ import UIKit
 class ReportGeneratorController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var collectionViewLayout = CollectionViewLayout()
-    
-    var dataMaipulator: CollectionViewDataManipulator? {
+    //var selectedItems: [Section<Item>]?
+    var selectedModules: [Module]?
+    private var collectionDisposable: Disposable?
+    var firstDataManipulator: CollectionViewDataManipulator<Item, ReportGeneratorCollectionViewCell>? {
         didSet {
-            self.collectionView.dataSource = dataMaipulator
-            self.collectionView.delegate = dataMaipulator
-            self.collectionViewLayout.delegate = dataMaipulator
-            
-            self.collectionView.reloadData()
+            if let collectionView = collectionView {
+                collectionViewLayout.layout?.maxParallaxOffset = 60
+                collectionViewLayout.layout?.minimumInteritemSpacing = 5
+                collectionViewLayout.layout?.minimumLineSpacing = 10
+                collectionViewLayout.layout?.headerSize = CGSize(width: 414, height: 260)
+                
+                collectionViewLayout.delegate = firstDataManipulator
+                collectionView.collectionViewLayout = collectionViewLayout
+                collectionView.dataSource = firstDataManipulator
+                collectionView.delegate = firstDataManipulator
+                
+                collectionView.register(ReportGeneratorCollectionViewCell.nib,
+                                        forCellWithReuseIdentifier: ReportGeneratorCollectionViewCell.reuseIdentifier)
+                collectionView.register(CustomListHeader.self,
+                                        forSupplementaryViewOfKind: CollectionViewLayout.Element.header.kind,
+                                        withReuseIdentifier: CollectionViewLayout.Element.header.id)
+                collectionView.register(ShortVideoListHeader.self,
+                                        forSupplementaryViewOfKind: CollectionViewLayout.Element.sectionHeader.kind,
+                                        withReuseIdentifier: CollectionViewLayout.Element.sectionHeader.id)
+            }
         }
     }
     
+    //MARK: View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.collectionViewLayout = collectionViewLayout
+        view.accessibilityIdentifier = "__page__ReportGeneratorController"
         
-        collectionView.register(UINib(nibName: "SecondCollectionViewCell", bundle: .main),
-                                forCellWithReuseIdentifier: "kSecondCollectionViewCell")
+        if let items = selectedModules {
+            
+           firstDataManipulator = CollectionViewDataManipulator<Item, ReportGeneratorCollectionViewCell>(secions: items.map { module in
+                Section<Item>(title: module.feature, items: ListViewModel.reportModels(module: module), isDragEnabled: false)
+            })
+        }
         
-        dataMaipulator = CollectionViewDataManipulator(secions:
-            [CollectionViewDataManipulator.Section(title: "section1",
-                                                   items: [Item(title: "Product 1 heidfds sdfsdf sdf sdfsdf sdf",
-                                                                subtitle: "cat 1", rightSubtitle: "1.0"),
-                                                           Item(title: "Product 2", subtitle: "cat 2", rightSubtitle: "5.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 4", rightSubtitle: "7.0"),
-                                                           Item(title: "Mrs Romana Begom Ki", subtitle: "cat 4", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 15 ", subtitle: "cat 18", rightSubtitle: "7.0")]),
-             CollectionViewDataManipulator.Section(title: "section 2",
-                                                   items: [Item(title: "Product 1", subtitle: "cat 1", rightSubtitle: "1.0"),
-                                                           Item(title: "Product 2", subtitle: "cat 2", rightSubtitle: "5.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 35", rightSubtitle: "7.0"),
-                                                           Item(title: "Product aktoo boro dudu", subtitle: "cat 34", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 7", subtitle: "cat 33", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 31", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 8", subtitle: "cat 32", rightSubtitle: "7.0")]),
-             CollectionViewDataManipulator.Section(title: "section 3",
-                                                   items: [Item(title: "Product 1", subtitle: "cat 1", rightSubtitle: "1.0"),
-                                                           Item(title: "Product 2", subtitle: "cat 2", rightSubtitle: "5.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 35", rightSubtitle: "7.0"),
-                                                           Item(title: "Product aktoo boro dudu", subtitle: "cat 34", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 7", subtitle: "cat 33", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 31", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 8", subtitle: "cat 32", rightSubtitle: "7.0")]),
-             CollectionViewDataManipulator.Section(title: "section 4",
-                                                   items: [Item(title: "Product 1 heidfds sdfsdf sdf sdfsdf sdf", subtitle: "cat 1", rightSubtitle: "1.0"),
-                                                           Item(title: "Product 2", subtitle: "cat 2", rightSubtitle: "5.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 4", rightSubtitle: "7.0"),
-                                                           Item(title: "Mrs Romana Begom Ki", subtitle: "cat 4", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 15 heelodd ", subtitle: "cat 18", rightSubtitle: "7.0")]),
-             CollectionViewDataManipulator.Section(title: "section 5",
-                                                   items: [Item(title: "Product 1", subtitle: "cat 1", rightSubtitle: "1.0"),
-                                                           Item(title: "Product 2", subtitle: "cat 2", rightSubtitle: "5.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 35", rightSubtitle: "7.0"),
-                                                           Item(title: "Product aktoo boro dudu", subtitle: "cat 34", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 7", subtitle: "cat 33", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 5", subtitle: "cat 31", rightSubtitle: "7.0"),
-                                                           Item(title: "Product 8", subtitle: "cat 32", rightSubtitle: "7.0")])
-            ])
+//        collectionDisposable = Observable(firstDataManipulator?.sections).observe { ([Section<Item>)]? in
+//            print(section?.makeIterator().count)
+//
+//        }
         
         
         
-        collectionView.register(ShortVideoListHeader.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: "header")
-        
-        // collectionView.delegate = currentDataSource as! UICollectionViewDelegate
+//        collectionDisposable = firstDataManipulator?.getSelectedItems().observe({ (items: [Item]?) in
+//            print(items?.count ?? 0)
+//        })
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.headerReferenceSize = CGSize(width: view.bounds.width, height: 100)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "kReportSubmitController") {
+            if let navController = segue.destination as? UINavigationController,
+                let reportSubmit = navController.topViewController as? ReportSubmiController {
+                reportSubmit.selectedItems = firstDataManipulator?.getSelectedItems()
+            }
+        }
     }
 }
 
