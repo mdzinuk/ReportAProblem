@@ -18,13 +18,13 @@ class ReportSubmiController: UIViewController {
                 //collectionViewLayout.delegate = self
                 
                 collectionViewLayout.layout?.maxParallaxOffset = 60
-                collectionViewLayout.layout?.minimumInteritemSpacing = 5
+                collectionViewLayout.layout?.minimumInteritemSpacing = 16
                 collectionViewLayout.layout?.minimumLineSpacing = 10
                 
-                collectionViewLayout.layout?.headerSize = CGSize(width: 414, height: 260)
+                collectionViewLayout.layout?.headerSize = CGSize(width: 414, height: 160)
                 
                 
-                collectionViewLayout.layout?.itemSize = CGSize(width: self.view.bounds.size.width - 20, height: 120)
+                collectionViewLayout.layout?.itemSize = CGSize(width: self.view.bounds.size.width - 32, height: 120)
                 collectionView.collectionViewLayout = collectionViewLayout
                 collectionView.dataSource = firstDataManipulator
                 collectionView.delegate = firstDataManipulator
@@ -45,15 +45,34 @@ class ReportSubmiController: UIViewController {
     //MARK: View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Report Submit"
         if let items = selectedItems as? [Item] {
             firstDataManipulator = CollectionViewDataManipulator<Item, ReportSubmitCollectionViewCell>(secions:
-                [Section<Item>(title: "Please drag the items", items: items, isDragEnabled: true)])
+                [Section<Item>(title: "You had issues on", items: items, isDragEnabled: true)])
         }
     }
 
     @IBAction func didClickOnCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func submitIssues(_ sender: UIBarButtonItem) {
+        AMProgressHUD.show()
+        Service.submitSelected(["Error 01", "Eorror 02"]) { [weak self] (response: Response<String>) in
+            self?.dismiss(animated: true, completion: nil)
+            AMProgressHUD.dismiss()
+        }
+    }
+    
+    public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            //refresh view once rotation is completed not in will transition as it returns incorrect frame size.Refresh here
+            self.collectionViewLayout.layout?.headerSize = CGSize(width: self.collectionView.bounds.width, height: 160)
+            self.collectionViewLayout.layout?.sectionsHeaderSize = CGSize(width: self.collectionView.bounds.width, height: 50)
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        })
     }
 }
 
@@ -63,3 +82,4 @@ extension ReportSubmiController : CollectionViewLayoutDelegate {
         return CGSize(width: self.view.bounds.size.width - 20, height: 120)
     }
 }
+

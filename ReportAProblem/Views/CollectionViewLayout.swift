@@ -137,17 +137,8 @@ class CollectionViewLayout: UICollectionViewLayout {
                 initItemFrame = itemFrame
                 lastFrame = lastFrame.union(initItemFrame)
             }
-            
+            contentBounds = contentBounds.union(lastFrame)
         }
-       /* let footerAttributes = CustomLayoutAttributes(
-            forSupplementaryViewOfKind: Element.sectionFooter.kind,
-            with: IndexPath(item: collectionView.numberOfItems(inSection: collectionView.numberOfSections - 1) + 1, section: collectionView.numberOfSections - 1)
-        )
-         let footerFrame = prepareElement(rect: CGRect(x: lastFrame.minX, y: lastFrame.maxY + 50, width: lastFrame.size.width, height: 0),
-                                   size: layout?.sectionsHeaderSize ?? CGSize.zero,
-                                   type: .sectionFooter, attributes: footerAttributes)
-        lastFrame = lastFrame.union(footerFrame)
-        contentBounds = contentBounds.union(lastFrame)*/
     }
     
     private var contentOffset: CGPoint {

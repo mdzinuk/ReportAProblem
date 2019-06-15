@@ -22,15 +22,15 @@ class ReportComposeViewController: UIViewController {
         // *** Create Toolbar
         inputToolbar = UIView()
         
-        inputToolbar.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+        inputToolbar.backgroundColor = UIColor.orange.withAlphaComponent(0.9)
         inputToolbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(inputToolbar)
         
         // *** Create GrowingTextView ***
         textView = GrowingTextView()
         textView.delegate = self
-        textView.layer.cornerRadius = 4.0
-        textView.maxLength = 200
+        textView.layer.cornerRadius = 10.0
+        textView.maxLength = 100
         textView.maxHeight = 300
         textView.trimWhiteSpaceWhenEndEditing = true
         textView.placeholder = "Say something..."
@@ -115,7 +115,7 @@ class ReportComposeViewController: UIViewController {
     private func createButton() -> UIButton {
         let sayButtonT = UIButton(type: .custom)
         let attributedText =  NSMutableAttributedString(string: Icon.IconLibrary.arrow_back.rawValue,
-                                                        attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.red])
+                                                        attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.white])
         sayButtonT.setAttributedTitle(attributedText, for: .normal)
         sayButtonT.setAttributedTitle(attributedText, for: .highlighted)
         sayButtonT.setAttributedTitle(attributedText, for: .selected)
@@ -127,7 +127,7 @@ class ReportComposeViewController: UIViewController {
     private func sendButton() -> UIButton {
         let sayButtonT = UIButton(type: .custom)
         let attributedText =  NSMutableAttributedString(string: Icon.IconLibrary.send.rawValue,
-                                                        attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.red])
+                                                        attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.white])
         sayButtonT.setAttributedTitle(attributedText, for: .normal)
         sayButtonT.setAttributedTitle(attributedText, for: .highlighted)
         sayButtonT.setAttributedTitle(attributedText, for: .selected)
@@ -137,8 +137,12 @@ class ReportComposeViewController: UIViewController {
     }
     
     @objc private func sayAction(_ sender: UIButton?) {
-        view.endEditing(true)
-        dismiss(animated: true, completion: nil)
+        AMProgressHUD.show()
+        Service.submitCompose(textView.text ?? "") { [weak self] (response: Response<String>) in
+            self?.view.endEditing(true)
+            self?.dismiss(animated: true, completion: nil)
+            AMProgressHUD.dismiss()
+        }
     }
 }
 

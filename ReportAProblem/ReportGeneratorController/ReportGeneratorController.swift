@@ -18,9 +18,9 @@ class ReportGeneratorController: UIViewController {
         didSet {
             if let collectionView = collectionView {
                 collectionViewLayout.layout?.maxParallaxOffset = 60
-                collectionViewLayout.layout?.minimumInteritemSpacing = 5
+                collectionViewLayout.layout?.minimumInteritemSpacing = 10
                 collectionViewLayout.layout?.minimumLineSpacing = 10
-                collectionViewLayout.layout?.headerSize = CGSize(width: 414, height: 260)
+                collectionViewLayout.layout?.headerSize = CGSize(width: 414, height: 160)
                 
                 collectionViewLayout.delegate = firstDataManipulator
                 collectionView.collectionViewLayout = collectionViewLayout
@@ -42,7 +42,7 @@ class ReportGeneratorController: UIViewController {
     //MARK: View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Report Generator"
         view.accessibilityIdentifier = "__page__ReportGeneratorController"
         
         if let items = selectedModules {
@@ -71,6 +71,17 @@ class ReportGeneratorController: UIViewController {
                 reportSubmit.selectedItems = firstDataManipulator?.getSelectedItems()
             }
         }
+    }
+    
+    public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            //refresh view once rotation is completed not in will transition as it returns incorrect frame size.Refresh here
+            self.collectionViewLayout.layout?.headerSize = CGSize(width: self.collectionView.bounds.width, height: 160)
+            self.collectionViewLayout.layout?.sectionsHeaderSize = CGSize(width: self.collectionView.bounds.width, height: 50)
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        })
     }
 }
 

@@ -1,218 +1,217 @@
 [
     {
-        "feature": "Login",
-        "detail": "Hello Login",
-        "issues": [
+        "feature":"Login",
+        "detail":"How to add custom message or text to login page.",
+        "issues":[
             {
-                "id": 0,
-                "title": "password",
-                "description": "Hello feaure",
-                "other": "nHomebrew might also tell you that you need to run brew link --overwrite ruby. You may also need to open a new Terminal session. Then, install fastlane again without specifying an install path"
+                "id":0,
+                "title":"password",
+                "description":"HOW TO USE PASSWORD FIELDS AND HIDDEN FIELDS IN YOUR HTML5 FORM.",
+                "other":"A password field is a special text field on a web form that doesn’t display what the user types. Each keystroke is represented on the screen by a placeholder character, such as an asterisk or a bullet, so that someone looking over the user’s shoulder can’t see what they type."
             },
             {
-                "id": 1,
-                "title": "eamil",
-                "description": "Hello feaure",
-                "other": "Hello feaure nLastly, run fastlane init again, and it should be able to create the app on iTunes Connect."
+                "id":1,
+                "title":"Email",
+                "description":"Outlook invalid email address invalid recipient - Solutions.",
+                "other":"Usually, the invalid email address error happens when you have 2 or more contacts with the same name, but one of them doesnt have a valid email address. The solution is to empty the Outlook auto-complete list."
             },
             {
-                "id": 2,
-                "title": "scroll",
-                "description": "Hello feaure",
-                "other": "nThis app identifier doesn't exist on iTunes Connect yet, it will be created for you This app identifier doesn't exist on the Apple Developer Portal yet, it will be created for you Please confirm the above values (y/n)"
-                
+                "id":2,
+                "title":"Scrolling Problem",
+                "description":"Can't scroll within email messages – Got an idea? - Outlook UserVoice.",
+                "other":"I'm using a Mac laptop with OS 10.12.6 and Safari 10.1.2, (the latest versions) I've already cleared the cache etc. I was told by the \"community support\" area to post here. If anyone from Microsoft actually reads this, the problem is that I cannot read email messages because I cannot scroll down within the messages (in the inbox or elsewhere) - so, you can only see the top of the message and not the rest of it. Doesn't work in any way, so can't use a mouse with the scrollbar, arrow keys or page up/page down keys."
             }
         ]
     },
     {
-        "feature": "Account",
-        "detail": "Hello Account",
-        "issues": [
+        "feature":"News Feed",
+        "detail":"Landing page feed.",
+        "issues":[
             {
-                "id": 0,
-                "title": "sorting",
-                "description": "Hello feaure",
-                "other": "nfastlane uses deliver to sign you into both iTunes Connect and the Apple Developer Portal, and it also verifies an app exists in your account with a matching app identifier. Since this is a new app, it won’t exist, and it will need to be created."
+                "id":0,
+                "title":"sorting",
+                "description":"Sorting has issue while sign out",
+                "other":"You can't use rank calculation as sorting key, but you can use rank() to filter the top N data, and in terms of sorting, e.g, rank(sum([sales])), you just need to sort your data by using the same expression you use in rank() function."
             },
             {
-                "id": 1,
-                "title": "few",
-                "description": "Hello feaure",
-                "other": "nUnless you’re already using rbenv or rvm (which are Ruby version managers), the easiest way to do this is via Homebrew."
+                "id":1,
+                "title":"Account deletion",
+                "description":"Account deletion does not work.",
+                "other":"When you have multiple accounts you can not reset account number."
             },
             {
-                "id": 2,
-                "title": "balance",
-                "description": "Hello feaure",
-                "other": "nSince fastlane is a collection of Ruby scripts, you must have the correct version of Ruby installed. Fortunately, OS X 10.9 (Mavericks) and later come with Ruby 2.0 by default. You can confirm this by opening Terminal and entering the following command:"
+                "id":2,
+                "title":"Feed upgradation",
+                "description":"HOW TO TAKE BACK YOUR FACEBOOK NEWS FEED",
+                "other":"I was skeptical about the latest shift. Over the last decade, my News Feed has increasingly begun to clog with life updates from hundreds of people I haven’t seen in years. Meanwhile, my closest friends—like many people’s—share less on the platform than ever. After Facebook’s announcement, I deleted the app from my phone, less in protest than in resignation to it having become more of a phone book than a social network."
             }
         ]
     },
     {
-        "feature": "Account Detail",
-        "detail": "Hello Account Detail",
-        "issues": [
+        "feature":"Profile",
+        "detail":"You receive a The User Profile Service failed the logon error message",
+        "issues":[
             {
-                "id": 0,
-                "title": "Due date",
-                "description": "Hello feaure",
-                "other": ": This tutorial has been updated for Xcode 8.2, Swift 3 and Fastlane 2.6.0 by Lyndsey Scott. The original tutorial was written by Satraj Bambra."
+                "id":0,
+                "title":"Symptoms",
+                "description":"Hello feaure",
+                "other": "When you log on to a Windows 7-based or a Windows Vista-based computer by using a temporary profile, you receive the following error message."
             },
             {
-                "id": 1,
-                "title": "unknown",
-                "description": "Hello feaure",
-                "other": " nIt’s that wonderful moment: You’ve poured days, weeks, or maybe even months into building an amazing app, and it’s finally ready to share with the world. All you have to do is submit it to the App Store. How hard could that be, right?"
+                "id":1,
+                "title":"unknown",
+                "description":"Hello feaure",
+                "other":" nIt’s that wonderful moment: You’ve poured days, weeks, or maybe even months into building an amazing app, and it’s finally ready to share with the world. All you have to do is submit it to the App Store. How hard could that be, right?"
             },
             {
-                "id": 2,
-                "title": "small list",
-                "description": "Hello feaure" ,
-                "other": "nCue mountains of grunt work: Capturing tons of screenshots, fighting Xcode provisioning, uploading to the App Store and constant mindless work! Aargh!"
+                "id":2,
+                "title":"small list",
+                "description":"Hello feaure",
+                "other":"nCue mountains of grunt work: Capturing tons of screenshots, fighting Xcode provisioning, uploading to the App Store and constant mindless work! Aargh!"
             }
         ]
     },
     {
-        "feature": "Location",
-        "detail": "Location detail",
-        "issues": [
+        "feature":"GPS",
+        "detail":"Location detail",
+        "issues":[
             {
-                "id": 0,
-                "title": "Hello Title",
-                "description": "Hello feaure" ,
-                "other": "nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n"
+                "id":0,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n"
             },
             {
-                "id": 1,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
+                "id":1,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
             },
             {
-                "id": 2,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
+                "id":2,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
             }
         ]
     },
     {
-        "feature": "Transfer",
-        "detail": "Hello Transfer",
-        "issues": [
+        "feature":"Order error",
+        "detail":"Hello Online error",
+        "issues":[
             {
-                "id": 0,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nWell, you’re in luck. Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend."
+                "id":0,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nWell, you’re in luck. Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend."
             },
             {
-                "id": 1,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": " nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
+                "id":1,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":" nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
             },
             {
-                "id": 2,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
+                "id":2,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
             }
         ]
     },
     {
-        "feature": "SSO",
-        "detail": "Hello SSO",
-        "issues": [
+        "feature":"Shipping",
+        "detail":"Hello Shipping",
+        "issues":[
             {
-                "id": 0,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n            "
+                "id":0,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n            "
             },
             {
-                "id": 1,
-                "title": "Hello Title",
-                "description": "Hello feaure" ,
-                "other": "nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
+                "id":1,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
             },
             {
-                "id": 2,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": " nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
+                "id":2,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":" nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
             }
         ]
     },
     {
-        "feature": "CreditScore",
-        "detail": "Hello CreditScore",
-        "issues": [
+        "feature":"Master Card",
+        "detail":"Hello master card error",
+        "issues":[
             {
-                "id": 0,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": " nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n            "
+                "id":0,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":" nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n            "
             },
             {
-                "id": 1,
-                "title": "Hello Title",
-                "description": "Hello feaure" ,
-                "other": "nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
+                "id":1,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
             },
             {
-                "id": 2,
-                "title": "Hello Title",
-                "description": "Hello feaure" ,
-                "other": "nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
+                "id":2,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
             }
         ]
     },
     {
-        "feature": "Payment",
-        "detail": "Hello Payment",
-        "issues": [
+        "feature":"Shopping cart",
+        "detail":"Hello shopping cart",
+        "issues":[
             {
-                "id": 0,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": " nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n            "
+                "id":0,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":" nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend.\n            "
             },
             {
-                "id": 1,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
+                "id":1,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
             },
             {
-                "id": 2,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": "nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
+                "id":2,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
             }
         ]
     },
     {
-        "feature": "Notifi",
-        "detail": "Hello Notifi",
-        "issues": [
+        "feature":"Push Notification",
+        "detail":"Hello push notification",
+        "issues":[
             {
-                "id": 0,
-                "title": "Hello Title",
-                "description": "Hello feaure" ,
-                "other": "nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend."
+                "id":0,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nWell, you’re in luck. :] Thanks to the amazing Felix Krause, there’s now a tool to do all this and more! It’s called fastlane, and it’ll become your new best friend."
             },
             {
-                "id": 1,
-                "title": "Hello Title",
-                "description": "Hello feaure" ,
-                "other": "nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
+                "id":1,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":"nThis tutorial also assumes you know about code signing and iTunes Connect. If you’re unfamiliar with these, please read this tutorial series first."
             },
             {
-                "id": 2,
-                "title": "Hello Title",
-                "description": "Hello feaure",
-                "other": " nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
+                "id":2,
+                "title":"Hello Title",
+                "description":"Hello feaure",
+                "other":" nmZone, the sample app you’ll use in this tutorial, is a simple poker calculator for No Limit Texas Hold’em tournaments. It displays a recommended action based on your chip count and the current big blind level:"
             }
         ]
     }

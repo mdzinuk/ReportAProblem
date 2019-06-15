@@ -28,7 +28,7 @@ struct ListViewModel {
                          rightSubtitle: "",
                          isDraggable: true)
                 })
-        mm.append(ListViewModel.customModel())
+        //mm.append(ListViewModel.customModel())
         return mm
     }
     
@@ -49,38 +49,38 @@ struct ListViewModel {
 enum SectionName: String {
 
     static func allSections() -> [SectionName] {
-        return [login, account, accountDetail, location, transfer, sso, creditScore, payment, notifi]
+        return [login, feed, profile, location, order, shipping, card, cart, notification]
     }
     
     case login = "Login"
-    case account = "Account"
-    case accountDetail = "Account Detail"
-    case location = "Location"
-    case transfer = "Transfer"
-    case sso = "SSO"
-    case creditScore = "CreditScore"
-    case payment = "Payment"
-    case notifi = "Notifi"
+    case feed = "News Feed"
+    case profile = "Profile"
+    case location = "GPS"
+    case order = "Order error"
+    case shipping = "Shipping"
+    case card = "Master Card"
+    case cart = "Shopping cart"
+    case notification = "Push Notification"
     
     var title: String {
         switch self {
         case .login:
             return Icon.IconLibrary.person.rawValue
-        case .notifi:
+        case .feed:
             return Icon.IconLibrary.home.rawValue
-        case .account:
+        case .profile:
             return Icon.IconLibrary.account_circle.rawValue
-        case .accountDetail:
+        case .order:
             return Icon.IconLibrary.account_balance.rawValue
         case .location:
             return Icon.IconLibrary.location_searching.rawValue
-        case .transfer:
+        case .shipping:
             return Icon.IconLibrary.transform.rawValue
-        case .sso:
+        case .card:
             return Icon.IconLibrary.settings_input_antenna.rawValue
-        case .creditScore:
+        case .cart:
             return Icon.IconLibrary.credit_card.rawValue
-        case .payment:
+        case .notification:
             return Icon.IconLibrary.payment.rawValue
         }
     }

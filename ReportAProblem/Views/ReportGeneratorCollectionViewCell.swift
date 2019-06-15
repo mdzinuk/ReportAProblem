@@ -29,7 +29,7 @@ final class ReportGeneratorCollectionViewCell: UICollectionViewCell, Configurabl
           //  crossLabel.isHidden = false
         } else {
             crossLabel.attributedText = NSAttributedString(string: Icon.IconLibrary.remove_circle_outline.rawValue,
-                                                           attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.red])
+                                                           attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.orange])
            // crossLabel.text = nil
           //  crossLabel.isHidden = true
         }
@@ -38,7 +38,7 @@ final class ReportGeneratorCollectionViewCell: UICollectionViewCell, Configurabl
     override func layoutSubviews() {
         super.layoutSubviews()
         self.contentView.layer.cornerRadius = 10.0
-        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.borderWidth = 0.50
         
         contentView.backgroundColor = .white
         self.contentView.layer.borderColor = UIColor.lightGray.cgColor
@@ -46,13 +46,13 @@ final class ReportGeneratorCollectionViewCell: UICollectionViewCell, Configurabl
         
         
         self.contentView.layer.masksToBounds = true
-        
+        /*
         self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         self.layer.shadowRadius = 2.0
         self.layer.shadowOpacity = 0.9
         self.layer.masksToBounds = false
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath*/
     }
     
 }

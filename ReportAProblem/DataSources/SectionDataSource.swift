@@ -17,11 +17,9 @@ struct Section<T: Itemable> {
     var titleDescription: String? {
         var count = 0
         items.forEach { (item: T) in
-            if let i = item as? Itemable {
-                count =  (i.isSelected == true) ? (count + 1) : count
-            }
+            count =  (item.isSelected == true) ? (count + 1) : count
         }
-        return title + ((count > 0) ? "\(count)" : "")
+        return title + ((count > 0) ? " (\(count))" : "")
     }
     var isDragEnabled: Bool
 }
@@ -166,7 +164,7 @@ final class CollectionViewDataManipulator<T: Itemable, C: ConfigurableCell>: NSO
                                                                          withReuseIdentifier: CollectionViewLayout.Element.header.id,
                                                                          for: indexPath) as! CustomListHeader
             //header.backgroundColor = UIColor(patternImage: UIImage(named: "header")!)
-            header.setNeedsLayout()
+            //header.setNeedsLayout()
             return header
         case CollectionViewLayout.Element.sectionFooter.kind:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,

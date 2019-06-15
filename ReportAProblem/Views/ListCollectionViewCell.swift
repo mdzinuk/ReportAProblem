@@ -18,10 +18,10 @@ final class ListCollectionViewCell: UICollectionViewCell, ConfigurableCell {
         
         self.clipsToBounds = true
         self.layer.cornerRadius = 15
-        self.layer.borderWidth = 1.0
+        self.layer.borderWidth = 0.30
         //self.layer.backgroundColor = UIColor.red.cgColor
         //self.backgroundColor = .white
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderColor = UIColor.gray.cgColor
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
@@ -29,10 +29,12 @@ final class ListCollectionViewCell: UICollectionViewCell, ConfigurableCell {
         var iconColor = UIColor.darkGray
         var textColor = UIColor.lightGray
         var contentColor = UIColor.white
+        var crossButtonColor = UIColor.lightGray
         if item?.isSpecial == true {
             contentColor = .orange
             iconColor = UIColor.white
             textColor = UIColor.white
+            crossButtonColor = UIColor.white
         }
         
         
@@ -47,7 +49,7 @@ final class ListCollectionViewCell: UICollectionViewCell, ConfigurableCell {
         crossButton.backgroundColor = UIColor.clear
         if item?.isDragged == false {
             titleLabel.attributedText = NSAttributedString(string: Icon.IconLibrary.cancel.rawValue,
-                                                           attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                           attributes: [NSAttributedString.Key.font: UIFont(name: Icon.IconFont.material.rawValue, size: Icon.IconSize.medium.rawValue) ?? UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: crossButtonColor])
             titleLabel.isHidden = false
         } else {
             titleLabel.text = nil

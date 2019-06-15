@@ -112,9 +112,9 @@ class GifHUDOptions {
     /// The repeat count for the gif image, the default is `0` (Infinity).
     var animationRepeatCount = 0
     /// Background color for the loading view, the default is `white`.
-    var backgroundColor = UIColor.white
+    var backgroundColor = UIColor.white.withAlphaComponent(0.2)
     /// The alpha for the background of the black view below the loading view, the default is `0`.
-    var backgroundAlpha:CGFloat = 0
+    var backgroundAlpha:CGFloat = 0.2
     /// The corner radius of the loading view, the default is `0`.
     var cornerRadius:CGFloat = 20
     /// The gif image name.

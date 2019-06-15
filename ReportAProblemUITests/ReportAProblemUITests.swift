@@ -12,19 +12,23 @@ class ReportAProblemUITests: XCTestCase {
     let app = XCUIApplication()
     
     override func setUp() {
-       continueAfterFailure = false
+        continueAfterFailure = false
         app.launch()
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testExample() {
-      // let page = app.otherElements["__page__ListViewController"]
+        // let page = app.otherElements["__page__ListViewController"]
         
-        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 3)
-        let destination = app.collectionViews.children(matching:.any).element(boundBy: 11)
+        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 2)
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: firstChild, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        let destination = app.collectionViews.children(matching:.any).element(boundBy: 12)
         let doneButton = app.buttons["doneButton"]
         if firstChild.exists && doneButton.exists {
             //.tap()
@@ -43,10 +47,10 @@ class ReportAProblemUITests: XCTestCase {
             secondDone.tap()
             
             sleep(5)
-
+            
         }
     }
-
+    
 }
 
 

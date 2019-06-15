@@ -38,10 +38,6 @@
 		860E1D0B219FD906005E1125 /* CustomLayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D08219FD906005E1125 /* CustomLayoutSettings.swift */; };
 		860E1D0C219FD906005E1125 /* CustomLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */; };
 		860E1D0D219FD906005E1125 /* CustomLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */; };
-		860E1D10219FD933005E1125 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860E1D0E219FD933005E1125 /* HeaderView.xib */; };
-		860E1D11219FD933005E1125 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860E1D0E219FD933005E1125 /* HeaderView.xib */; };
-		860E1D12219FD933005E1125 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D0F219FD933005E1125 /* HeaderView.swift */; };
-		860E1D13219FD933005E1125 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D0F219FD933005E1125 /* HeaderView.swift */; };
 		8618E5BF2184931000A44900 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618E5BE2184931000A44900 /* Icon.swift */; };
 		866BFEE92184A49600DB7447 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BFEE82184A49600DB7447 /* RootModel.swift */; };
 		866BFEEC2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BFEEA2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift */; };
@@ -67,14 +63,14 @@
 		86E139E421998C5F00F22225 /* ReportSubmiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E139D12197A3F400F22225 /* ReportSubmiController.swift */; };
 		961F3D7221A3562C00A83473 /* AMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3D7121A3562B00A83473 /* AMProgressHUD.swift */; };
 		961F3D7321A3562C00A83473 /* AMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3D7121A3562B00A83473 /* AMProgressHUD.swift */; };
-		961F3D7521A3563600A83473 /* progress.gif in Resources */ = {isa = PBXBuildFile; fileRef = 961F3D7421A3563600A83473 /* progress.gif */; };
-		961F3D7621A3563600A83473 /* progress.gif in Resources */ = {isa = PBXBuildFile; fileRef = 961F3D7421A3563600A83473 /* progress.gif */; };
 		961F3DBC21A38BD000A83473 /* ReportComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3DBB21A38BD000A83473 /* ReportComposeViewController.swift */; };
 		961F3DBD21A38BD000A83473 /* ReportComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3DBB21A38BD000A83473 /* ReportComposeViewController.swift */; };
 		9622C48F2188036200B5516C /* reports.json in Resources */ = {isa = PBXBuildFile; fileRef = 9622C48E2188036200B5516C /* reports.json */; };
 		9622C4902188036200B5516C /* reports.json in Resources */ = {isa = PBXBuildFile; fileRef = 9622C48E2188036200B5516C /* reports.json */; };
 		9622C4932188058100B5516C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622C4922188058100B5516C /* Service.swift */; };
 		9622C4942188058100B5516C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622C4922188058100B5516C /* Service.swift */; };
+		9638879D21A4E06E00F7B3C2 /* progress.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9638879C21A4E06E00F7B3C2 /* progress.gif */; };
+		9638879E21A4E06E00F7B3C2 /* progress.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9638879C21A4E06E00F7B3C2 /* progress.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,8 +120,6 @@
 		860E1D05219D7ABC005E1125 /* CustomListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListHeader.swift; sourceTree = "<group>"; };
 		860E1D08219FD906005E1125 /* CustomLayoutSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutSettings.swift; sourceTree = "<group>"; };
 		860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutAttributes.swift; sourceTree = "<group>"; };
-		860E1D0E219FD933005E1125 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		860E1D0F219FD933005E1125 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8618E5BE2184931000A44900 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		866BFEE82184A49600DB7447 /* RootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
 		866BFEEA2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportGeneratorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -134,10 +128,10 @@
 		86E139D32197B5E300F22225 /* ReportSubmitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmitCollectionViewCell.swift; sourceTree = "<group>"; };
 		86E139D42197B5E300F22225 /* ReportSubmitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportSubmitCollectionViewCell.xib; sourceTree = "<group>"; };
 		961F3D7121A3562B00A83473 /* AMProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMProgressHUD.swift; sourceTree = "<group>"; };
-		961F3D7421A3563600A83473 /* progress.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = progress.gif; sourceTree = "<group>"; };
 		961F3DBB21A38BD000A83473 /* ReportComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportComposeViewController.swift; sourceTree = "<group>"; };
 		9622C48E2188036200B5516C /* reports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reports.json; sourceTree = "<group>"; };
 		9622C4922188058100B5516C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		9638879C21A4E06E00F7B3C2 /* progress.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = progress.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,11 +207,11 @@
 		860854452171BB65001529C3 /* ReportAProblem */ = {
 			isa = PBXGroup;
 			children = (
+				860854462171BB65001529C3 /* AppDelegate.swift */,
 				961F3DBA21A38B9B00A83473 /* ReportCompose */,
 				9622C4912188055500B5516C /* Services */,
 				860842D9217AA86D00784827 /* Observable */,
 				860842D8217A9A9A00784827 /* ReportSubmiController */,
-				860854462171BB65001529C3 /* AppDelegate.swift */,
 				860842D42175E52200784827 /* Extension */,
 				860854882171BCCA001529C3 /* ReportGeneratorController */,
 				860854872171BCB5001529C3 /* Models */,
@@ -250,7 +244,7 @@
 		860854832171BC57001529C3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				961F3D7421A3563600A83473 /* progress.gif */,
+				9638879C21A4E06E00F7B3C2 /* progress.gif */,
 				9622C48E2188036200B5516C /* reports.json */,
 				8608549D21749118001529C3 /* MaterialIcons-Regular.woff */,
 				860854522171BB65001529C3 /* Info.plist */,
@@ -273,8 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				961F3D7121A3562B00A83473 /* AMProgressHUD.swift */,
-				860E1D0F219FD933005E1125 /* HeaderView.swift */,
-				860E1D0E219FD933005E1125 /* HeaderView.xib */,
 				860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */,
 				860854942171C27F001529C3 /* CollectionViewLayout.swift */,
 				860854932171C27F001529C3 /* SecondCollectionViewCell.swift */,
@@ -344,6 +336,7 @@
 				8608543F2171BB65001529C3 /* Sources */,
 				860854402171BB65001529C3 /* Frameworks */,
 				860854412171BB65001529C3 /* Resources */,
+				86C1C68721B7E18D007EC300 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -379,6 +372,7 @@
 				8608545E2171BB65001529C3 /* Sources */,
 				8608545F2171BB65001529C3 /* Frameworks */,
 				860854602171BB65001529C3 /* Resources */,
+				86C1C68821B7E228007EC300 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -438,9 +432,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961F3D7521A3563600A83473 /* progress.gif in Resources */,
 				86E139D62197B5E300F22225 /* ReportSubmitCollectionViewCell.xib in Resources */,
-				860E1D10219FD933005E1125 /* HeaderView.xib in Resources */,
+				9638879D21A4E06E00F7B3C2 /* progress.gif in Resources */,
 				860854512171BB65001529C3 /* LaunchScreen.storyboard in Resources */,
 				8608544E2171BB65001529C3 /* Assets.xcassets in Resources */,
 				866BFEEE2187242000DB7447 /* ReportGeneratorCollectionViewCell.xib in Resources */,
@@ -468,13 +461,49 @@
 				86E139D921998C4600F22225 /* SecondCollectionViewCell.xib in Resources */,
 				866BFEEF2187242000DB7447 /* ReportGeneratorCollectionViewCell.xib in Resources */,
 				9622C4902188036200B5516C /* reports.json in Resources */,
-				961F3D7621A3563600A83473 /* progress.gif in Resources */,
+				9638879E21A4E06E00F7B3C2 /* progress.gif in Resources */,
 				8608549F21749118001529C3 /* MaterialIcons-Regular.woff in Resources */,
-				860E1D11219FD933005E1125 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86C1C68721B7E18D007EC300 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export HELLO=\"Shona\"\nexport VARIABLE1=Arafat\n";
+		};
+		86C1C68821B7E228007EC300 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nexport HELLO=\"Shona\"\nexport VARIABLE1=Arafat\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8608543F2171BB65001529C3 /* Sources */ = {
@@ -489,7 +518,6 @@
 				860842DB217AA89400784827 /* Didposable.swift in Sources */,
 				860842D62175E57000784827 /* UILabel+Extension.swift in Sources */,
 				961F3DBC21A38BD000A83473 /* ReportComposeViewController.swift in Sources */,
-				860E1D12219FD933005E1125 /* HeaderView.swift in Sources */,
 				860854472171BB65001529C3 /* AppDelegate.swift in Sources */,
 				860591F82181BCE600C39463 /* ListCollectionViewCell.swift in Sources */,
 				8608549A2171C27F001529C3 /* ShortVideoListHeader.swift in Sources */,
@@ -528,7 +556,6 @@
 				9622C4942188058100B5516C /* Service.swift in Sources */,
 				86E139D721998C4600F22225 /* CollectionViewLayout.swift in Sources */,
 				961F3DBD21A38BD000A83473 /* ReportComposeViewController.swift in Sources */,
-				860E1D13219FD933005E1125 /* HeaderView.swift in Sources */,
 				860842DF217AA8BB00784827 /* Observable.swift in Sources */,
 				866BFEED2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift in Sources */,
 				86E139E321998C5A00F22225 /* ReportGeneratorController.swift in Sources */,
@@ -703,6 +730,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FRJUXFZKGC;
 				INFOPLIST_FILE = "$(SRCROOT)/ReportAProblem/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -720,6 +748,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FRJUXFZKGC;
 				INFOPLIST_FILE = "$(SRCROOT)/ReportAProblem/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

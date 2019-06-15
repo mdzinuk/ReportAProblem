@@ -36,12 +36,12 @@ class CustomListHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.black.withAlphaComponent(0.95)
+        backgroundColor = UIColor.white//UIColor(displayP3Red: 0.835, green: 0.392, blue: 0.192, alpha: 1.0)
         clipsToBounds = true
         
-        addSubview(label)
+        addSubview(imageView)
         
-        let views = ["label": label]
+        let views = ["label": imageView]
         
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-50-[label]-50-|", options: [], metrics: nil, views: views))
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[label]-20-|", options: [], metrics: nil, views: views))
@@ -66,7 +66,7 @@ class CustomListHeader: UICollectionReusableView {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "header")
         return imageView
     }()

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SafariServices
 
 enum Response<T: Codable>{
     case failure(status: Int, reason: String?)
@@ -31,4 +32,30 @@ class Service<T: Codable> {
             }
         }
     }
+    
+    static func submitCompose(_ message: String, result: ((Response<T>) -> Void)?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let data = "🙃".data(using: .ascii)
+            let decoder = JSONDecoder()
+            if let jsonData = try? decoder.decode(T.self, from: data ?? Data()), let success = result {
+                success(Response.success(data: jsonData))
+            } else {
+                result?(Response.failure(status: 404, reason: "failed"))
+            }
+        }
+    }
+    
+    static func submitSelected(_ problems: [String], result: ((Response<T>) -> Void)?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let data = "🙃".data(using: .ascii)
+            let decoder = JSONDecoder()
+            if let jsonData = try? decoder.decode(T.self, from: data ?? Data()), let success = result {
+                success(Response.success(data: jsonData))
+            } else {
+                result?(Response.failure(status: 404, reason: "failed"))
+            }
+        }
+    }
 }
+
+
