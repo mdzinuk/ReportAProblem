@@ -12,7 +12,7 @@
             {
                 "id":1,
                 "title":"Email",
-                "description":"Outlook invalid email address invalid recipient - Solutions.",
+                "description":"Outlook invalid",
                 "other":"Usually, the invalid email address error happens when you have 2 or more contacts with the same name, but one of them doesnt have a valid email address. The solution is to empty the Outlook auto-complete list."
             },
             {
@@ -30,19 +30,19 @@
             {
                 "id":0,
                 "title":"sorting",
-                "description":"Sorting has issue while sign out",
+                "description":"Sorting has",
                 "other":"You can't use rank calculation as sorting key, but you can use rank() to filter the top N data, and in terms of sorting, e.g, rank(sum([sales])), you just need to sort your data by using the same expression you use in rank() function."
             },
             {
                 "id":1,
                 "title":"Account deletion",
-                "description":"Account deletion does not work.",
+                "description":"Account deletion.",
                 "other":"When you have multiple accounts you can not reset account number."
             },
             {
                 "id":2,
                 "title":"Feed upgradation",
-                "description":"HOW TO TAKE BACK YOUR FACEBOOK NEWS FEED",
+                "description":"HOW TO TAKE.",
                 "other":"I was skeptical about the latest shift. Over the last decade, my News Feed has increasingly begun to clog with life updates from hundreds of people I haven’t seen in years. Meanwhile, my closest friends—like many people’s—share less on the platform than ever. After Facebook’s announcement, I deleted the app from my phone, less in protest than in resignation to it having become more of a phone book than a social network."
             }
         ]

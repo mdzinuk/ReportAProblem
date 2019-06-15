@@ -23,10 +23,11 @@ class ReportAProblemUITests: XCTestCase {
     func testExample() {
         // let page = app.otherElements["__page__ListViewController"]
         
-        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 2)
+        let firstChild = app.collectionViews.cells.element(boundBy: 2)
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: firstChild, handler: nil)
         waitForExpectations(timeout: 10, handler: nil)
+        
         
         let destination = app.collectionViews.children(matching:.any).element(boundBy: 12)
         let doneButton = app.buttons["doneButton"]
