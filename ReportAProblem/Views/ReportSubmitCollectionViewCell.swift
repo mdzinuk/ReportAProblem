@@ -20,10 +20,6 @@ class ReportSubmitCollectionViewCell: UICollectionViewCell, ConfigurableCell {
         contentView.backgroundColor = .white
         self.contentView.layer.borderColor = UIColor.lightGray.cgColor
         self.contentView.layer.masksToBounds = true
-        /*self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 0.9*/
         self.layer.masksToBounds = false
     }
     
@@ -36,7 +32,5 @@ class ReportSubmitCollectionViewCell: UICollectionViewCell, ConfigurableCell {
         
         titleLabel.attributedText = attributedText
         detailLabel.text = "\(item?.rightSubtitle ?? "")"
-        
-        //self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
 }

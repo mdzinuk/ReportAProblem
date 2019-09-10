@@ -1,10 +1,10 @@
-/*
- See LICENSE folder for this sample’s licensing information.
- 
- Abstract:
- Custom view flow layout for mosaic-style appearance.
- */
-
+//
+//  CollectionViewLayout.swift
+//  ReportAProblem
+//
+//  Created by Mohammad Arafat Hossain on 20/10/18.
+//  Copyright © 2018 Mohammad Arafat Hossain. All rights reserved.
+//
 import UIKit
 import Foundation
 
@@ -13,9 +13,9 @@ protocol CollectionViewLayoutDelegate: class {
 }
 
 class CollectionViewLayout: UICollectionViewLayout {
-    init(with layout: CustomLayoutSettings? = nil) {
+    init(with layout: DefaultLayoutSettings? = nil) {
         super.init()
-        self.layout = layout ?? CustomLayoutSettings()
+        self.layout = layout ?? DefaultLayoutSettings()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,8 +24,8 @@ class CollectionViewLayout: UICollectionViewLayout {
     
     weak var delegate: CollectionViewLayoutDelegate?
     var contentBounds = CGRect.zero
-    private var cachedAttributes = [Element: [IndexPath: CustomLayoutAttributes]]()
-    public var layout: CustomLayoutSettings?
+    private var cachedAttributes = [Element: [IndexPath: LayoutAttributes]]()
+    public var layout: DefaultLayoutSettings?
     
     enum Element: String {
         case header
@@ -44,22 +44,21 @@ class CollectionViewLayout: UICollectionViewLayout {
     }
     
     
-    
     override public class var layoutAttributesClass: AnyClass {
-        return CustomLayoutAttributes.self
+        return LayoutAttributes.self
     }
     
     private func prepareCache() {
         cachedAttributes.removeAll(keepingCapacity: true)
-        cachedAttributes[.header] = [IndexPath: CustomLayoutAttributes]()
-        cachedAttributes[.menu] = [IndexPath: CustomLayoutAttributes]()
-        cachedAttributes[.sectionHeader] = [IndexPath: CustomLayoutAttributes]()
-        cachedAttributes[.sectionFooter] = [IndexPath: CustomLayoutAttributes]()
-        cachedAttributes[.cell] = [IndexPath: CustomLayoutAttributes]()
+        cachedAttributes[.header] = [IndexPath: LayoutAttributes]()
+        cachedAttributes[.menu] = [IndexPath: LayoutAttributes]()
+        cachedAttributes[.sectionHeader] = [IndexPath: LayoutAttributes]()
+        cachedAttributes[.sectionFooter] = [IndexPath: LayoutAttributes]()
+        cachedAttributes[.cell] = [IndexPath: LayoutAttributes]()
     }
     
     private func prepareElement(rect: CGRect, size: CGSize,
-                                type: Element, attributes: CustomLayoutAttributes) -> CGRect {
+                                type: Element, attributes: LayoutAttributes) -> CGRect {
         guard size != .zero else { return CGRect.zero }
         let spacing = layout?.minimumInteritemSpacing ?? 0
         
@@ -73,7 +72,7 @@ class CollectionViewLayout: UICollectionViewLayout {
     }
     
     
-    private func prepareItem(givenFrame: CGRect, size: CGSize, type: Element, attributes: CustomLayoutAttributes) -> CGRect {
+    private func prepareItem(givenFrame: CGRect, size: CGSize, type: Element, attributes: LayoutAttributes) -> CGRect {
         let spacing = layout?.minimumInteritemSpacing ?? 0
         
         let minX = givenFrame.maxX + size.width + (2 * spacing)
@@ -109,7 +108,7 @@ class CollectionViewLayout: UICollectionViewLayout {
         
         var lastFrame: CGRect = .zero
         
-        let headerAttributes = CustomLayoutAttributes(
+        let headerAttributes = LayoutAttributes(
             forSupplementaryViewOfKind: Element.header.kind,
             with: IndexPath(item: 0, section: 0)
         )
@@ -119,8 +118,8 @@ class CollectionViewLayout: UICollectionViewLayout {
         
         for section in 0 ..< collectionView.numberOfSections {
             
-            let sectionAttribute = CustomLayoutAttributes(forSupplementaryViewOfKind:Element.sectionHeader.kind,
-                                                          with: IndexPath(item: 0, section: section))
+            let sectionAttribute = LayoutAttributes(forSupplementaryViewOfKind:Element.sectionHeader.kind,
+                                                    with: IndexPath(item: 0, section: section))
             let sectionFrame = prepareElement(rect: lastFrame,
                                               size: layout?.sectionsHeaderSize ?? CGSize.zero,
                                               type: .sectionHeader, attributes: sectionAttribute)
@@ -131,7 +130,7 @@ class CollectionViewLayout: UICollectionViewLayout {
                 
                 let itemIndex = IndexPath(item: item, section: section)
                 let itemSize = getItemSize(itemIndex)
-                let itemAttributes = CustomLayoutAttributes(forCellWith: itemIndex)
+                let itemAttributes = LayoutAttributes(forCellWith: itemIndex)
                 let itemFrame = prepareItem(givenFrame: initItemFrame, size: itemSize,
                                             type: .cell, attributes: itemAttributes)
                 initItemFrame = itemFrame
@@ -187,7 +186,7 @@ class CollectionViewLayout: UICollectionViewLayout {
     
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        var visibleLayoutAttributes = [CustomLayoutAttributes]()
+        var visibleLayoutAttributes = [LayoutAttributes]()
         
         guard let collectionView = collectionView else {
             return nil
@@ -219,7 +218,7 @@ class CollectionViewLayout: UICollectionViewLayout {
         return visibleLayoutAttributes
     }
     
-    private func updateSupplementaryViews(_ type: Element, attributes: CustomLayoutAttributes, collectionView: UICollectionView, indexPath: IndexPath) {
+    private func updateSupplementaryViews(_ type: Element, attributes: LayoutAttributes, collectionView: UICollectionView, indexPath: IndexPath) {
         // 1
         if type == .sectionHeader {
             let upperLimit =
@@ -249,8 +248,8 @@ class CollectionViewLayout: UICollectionViewLayout {
         }
     }
     
-    private func updateCells(_ attributes: CustomLayoutAttributes, halfHeight: CGFloat, halfCellHeight: CGFloat) {
-       let cellDistanceFromCenter = attributes.center.y - contentOffset.y - halfHeight
+    private func updateCells(_ attributes: LayoutAttributes, halfHeight: CGFloat, halfCellHeight: CGFloat) {
+        let cellDistanceFromCenter = attributes.center.y - contentOffset.y - halfHeight
         
         // 2
         let parallaxOffset = -((layout?.maxParallaxOffset ?? 30) * cellDistanceFromCenter)

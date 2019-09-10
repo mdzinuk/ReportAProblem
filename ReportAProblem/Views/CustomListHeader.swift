@@ -1,32 +1,10 @@
 //
-//  File.swift
+//  CustomListHeader.swift
 //  ReportAProblem
 //
 //  Created by Mohammad Arafat Hossain on 15/11/18.
 //  Copyright © 2018 Mohammad Arafat Hossain. All rights reserved.
 //
-
-//import UIKit
-//
-//class CustomListHeader: UICollectionReusableView {
-//    let imageView = UIImageView()
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//        imageView.image = UIImage(named: "header")
-//        addSubview(imageView)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//    }
-//}
 
 
 import UIKit

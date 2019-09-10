@@ -34,10 +34,10 @@
 		8608549F21749118001529C3 /* MaterialIcons-Regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 8608549D21749118001529C3 /* MaterialIcons-Regular.woff */; };
 		860E1D06219D7ABC005E1125 /* CustomListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D05219D7ABC005E1125 /* CustomListHeader.swift */; };
 		860E1D07219D7ABC005E1125 /* CustomListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D05219D7ABC005E1125 /* CustomListHeader.swift */; };
-		860E1D0A219FD906005E1125 /* CustomLayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D08219FD906005E1125 /* CustomLayoutSettings.swift */; };
-		860E1D0B219FD906005E1125 /* CustomLayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D08219FD906005E1125 /* CustomLayoutSettings.swift */; };
-		860E1D0C219FD906005E1125 /* CustomLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */; };
-		860E1D0D219FD906005E1125 /* CustomLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */; };
+		860E1D0A219FD906005E1125 /* DefaultLayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D08219FD906005E1125 /* DefaultLayoutSettings.swift */; };
+		860E1D0B219FD906005E1125 /* DefaultLayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D08219FD906005E1125 /* DefaultLayoutSettings.swift */; };
+		860E1D0C219FD906005E1125 /* LayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D09219FD906005E1125 /* LayoutAttributes.swift */; };
+		860E1D0D219FD906005E1125 /* LayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1D09219FD906005E1125 /* LayoutAttributes.swift */; };
 		8618E5BF2184931000A44900 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618E5BE2184931000A44900 /* Icon.swift */; };
 		866BFEE92184A49600DB7447 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BFEE82184A49600DB7447 /* RootModel.swift */; };
 		866BFEEC2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BFEEA2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift */; };
@@ -118,8 +118,8 @@
 		8608549B2171C299001529C3 /* ReportGeneratorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportGeneratorController.swift; sourceTree = "<group>"; };
 		8608549D21749118001529C3 /* MaterialIcons-Regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaterialIcons-Regular.woff"; sourceTree = "<group>"; };
 		860E1D05219D7ABC005E1125 /* CustomListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListHeader.swift; sourceTree = "<group>"; };
-		860E1D08219FD906005E1125 /* CustomLayoutSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutSettings.swift; sourceTree = "<group>"; };
-		860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutAttributes.swift; sourceTree = "<group>"; };
+		860E1D08219FD906005E1125 /* DefaultLayoutSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLayoutSettings.swift; sourceTree = "<group>"; };
+		860E1D09219FD906005E1125 /* LayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutAttributes.swift; sourceTree = "<group>"; };
 		8618E5BE2184931000A44900 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		866BFEE82184A49600DB7447 /* RootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
 		866BFEEA2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportGeneratorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				961F3D7121A3562B00A83473 /* AMProgressHUD.swift */,
-				860E1D09219FD906005E1125 /* CustomLayoutAttributes.swift */,
+				860E1D09219FD906005E1125 /* LayoutAttributes.swift */,
 				860854942171C27F001529C3 /* CollectionViewLayout.swift */,
 				860854932171C27F001529C3 /* SecondCollectionViewCell.swift */,
 				860854952171C27F001529C3 /* SecondCollectionViewCell.xib */,
@@ -279,7 +279,7 @@
 				86E139D32197B5E300F22225 /* ReportSubmitCollectionViewCell.swift */,
 				86E139D42197B5E300F22225 /* ReportSubmitCollectionViewCell.xib */,
 				860E1D05219D7ABC005E1125 /* CustomListHeader.swift */,
-				860E1D08219FD906005E1125 /* CustomLayoutSettings.swift */,
+				860E1D08219FD906005E1125 /* DefaultLayoutSettings.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,7 +513,7 @@
 				860842DE217AA8BB00784827 /* Observable.swift in Sources */,
 				8608549C2171C29A001529C3 /* ReportGeneratorController.swift in Sources */,
 				860842D22175E4B200784827 /* SectionDataSource.swift in Sources */,
-				860E1D0A219FD906005E1125 /* CustomLayoutSettings.swift in Sources */,
+				860E1D0A219FD906005E1125 /* DefaultLayoutSettings.swift in Sources */,
 				86E139D22197A3F400F22225 /* ReportSubmiController.swift in Sources */,
 				860842DB217AA89400784827 /* Didposable.swift in Sources */,
 				860842D62175E57000784827 /* UILabel+Extension.swift in Sources */,
@@ -529,7 +529,7 @@
 				860854972171C27F001529C3 /* SecondCollectionViewCell.swift in Sources */,
 				860854982171C27F001529C3 /* CollectionViewLayout.swift in Sources */,
 				8608548D2171BD87001529C3 /* Model.swift in Sources */,
-				860E1D0C219FD906005E1125 /* CustomLayoutAttributes.swift in Sources */,
+				860E1D0C219FD906005E1125 /* LayoutAttributes.swift in Sources */,
 				86E139D52197B5E300F22225 /* ReportSubmitCollectionViewCell.swift in Sources */,
 				860E1D06219D7ABC005E1125 /* CustomListHeader.swift in Sources */,
 				866BFEEC2187242000DB7447 /* ReportGeneratorCollectionViewCell.swift in Sources */,
@@ -551,7 +551,7 @@
 				86E139DB21998C4600F22225 /* ListCollectionViewCell.swift in Sources */,
 				860842D32175E4B200784827 /* SectionDataSource.swift in Sources */,
 				86E139DA21998C4600F22225 /* ShortVideoListHeader.swift in Sources */,
-				860E1D0B219FD906005E1125 /* CustomLayoutSettings.swift in Sources */,
+				860E1D0B219FD906005E1125 /* DefaultLayoutSettings.swift in Sources */,
 				86E139E121998C5600F22225 /* Icon.swift in Sources */,
 				9622C4942188058100B5516C /* Service.swift in Sources */,
 				86E139D721998C4600F22225 /* CollectionViewLayout.swift in Sources */,
@@ -567,7 +567,7 @@
 				860842DC217AA89400784827 /* Didposable.swift in Sources */,
 				86E139DD21998C4600F22225 /* ReportSubmitCollectionViewCell.swift in Sources */,
 				86E139DF21998C4E00F22225 /* ListViewController.swift in Sources */,
-				860E1D0D219FD906005E1125 /* CustomLayoutAttributes.swift in Sources */,
+				860E1D0D219FD906005E1125 /* LayoutAttributes.swift in Sources */,
 				860842D72175E57000784827 /* UILabel+Extension.swift in Sources */,
 				860E1D07219D7ABC005E1125 /* CustomListHeader.swift in Sources */,
 				86E139E221998C5600F22225 /* RootModel.swift in Sources */,

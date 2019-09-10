@@ -11,12 +11,6 @@ import UIKit
 
 
 struct ListViewModel {
-    /*static func reportModels() -> [Item] {
-        return SectionName.allSections().map { (section) in
-            return Item(title: section.title, subtitle: section.subTitle, rightSubtitle: "", isSelectable: false)
-        }
-    }*/
-    
     static func listModels(modules: [Module]) -> [Item] {
         var mm =
             modules
@@ -47,7 +41,7 @@ struct ListViewModel {
 }
 
 enum SectionName: String {
-
+    
     static func allSections() -> [SectionName] {
         return [login, feed, profile, location, order, shipping, card, cart, notification]
     }

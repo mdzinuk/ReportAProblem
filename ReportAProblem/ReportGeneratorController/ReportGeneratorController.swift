@@ -46,22 +46,10 @@ class ReportGeneratorController: UIViewController {
         view.accessibilityIdentifier = "__page__ReportGeneratorController"
         
         if let items = selectedModules {
-            
-           firstDataManipulator = CollectionViewDataManipulator<Item, ReportGeneratorCollectionViewCell>(secions: items.map { module in
+            firstDataManipulator = CollectionViewDataManipulator<Item, ReportGeneratorCollectionViewCell>(secions: items.map { module in
                 Section<Item>(title: module.feature, items: ListViewModel.reportModels(module: module), isDragEnabled: false)
             })
         }
-        
-//        collectionDisposable = Observable(firstDataManipulator?.sections).observe { ([Section<Item>)]? in
-//            print(section?.makeIterator().count)
-//
-//        }
-        
-        
-        
-//        collectionDisposable = firstDataManipulator?.getSelectedItems().observe({ (items: [Item]?) in
-//            print(items?.count ?? 0)
-//        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

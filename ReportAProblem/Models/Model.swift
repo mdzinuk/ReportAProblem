@@ -19,7 +19,6 @@ extension ConfigurableCell {
     static var nib: UINib {
         return UINib(nibName: Self.reuseIdentifier, bundle: .main)
     }
-    
 }
 
 public protocol Itemable: Codable, NSItemProviderWriting, NSItemProviderReading {
